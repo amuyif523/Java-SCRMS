@@ -64,6 +64,15 @@ public class GradeService {
         persist();
     }
 
+    public void reload() {
+        reports.clear();
+        reports.addAll(dataStore.load());
+    }
+
+    public void flush() {
+        persist();
+    }
+
     private String calculateLetter(double score) {
         if (score >= 90) {
             return "A";

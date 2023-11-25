@@ -62,4 +62,34 @@ public class ServiceRegistry {
     public AuthenticationService getAuthenticationService() {
         return authenticationService;
     }
+
+    /**
+     * Flushes all services to disk.
+     */
+    public void saveAll() {
+        studentService.flush();
+        instructorService.flush();
+        roomService.flush();
+        courseService.flush();
+        timetableService.flush();
+        bookingService.flush();
+        attendanceService.flush();
+        gradeService.flush();
+        authenticationService.flush();
+    }
+
+    /**
+     * Reloads all services from disk.
+     */
+    public void reloadAll() {
+        studentService.reload();
+        instructorService.reload();
+        roomService.reload();
+        courseService.reload();
+        timetableService.reload();
+        bookingService.reload();
+        attendanceService.reload();
+        gradeService.reload();
+        authenticationService.reload();
+    }
 }

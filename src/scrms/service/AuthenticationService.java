@@ -56,6 +56,15 @@ public class AuthenticationService {
         return new ArrayList<>(admins);
     }
 
+    public void reload() {
+        admins.clear();
+        admins.addAll(dataStore.load());
+    }
+
+    public void flush() {
+        persist();
+    }
+
     private void persist() {
         dataStore.save(admins);
     }
