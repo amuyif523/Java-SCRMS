@@ -107,6 +107,21 @@ public class StudentService implements CrudService<Student> {
         persist();
     }
 
+    /**
+     * Forces the service to reload data from disk.
+     */
+    public void reload() {
+        students.clear();
+        students.addAll(dataStore.load());
+    }
+
+    /**
+     * Flushes any in-memory changes to disk.
+     */
+    public void flush() {
+        persist();
+    }
+
     private void persist() {
         dataStore.save(students);
     }
