@@ -68,6 +68,15 @@ public class RoomService implements CrudService<Room> {
         persist();
     }
 
+    public void reload() {
+        rooms.clear();
+        rooms.addAll(dataStore.load());
+    }
+
+    public void flush() {
+        persist();
+    }
+
     private void persist() {
         dataStore.save(rooms);
     }

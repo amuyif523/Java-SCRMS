@@ -79,6 +79,15 @@ public class BookingService {
         persist();
     }
 
+    public void reload() {
+        bookings.clear();
+        bookings.addAll(dataStore.load());
+    }
+
+    public void flush() {
+        persist();
+    }
+
     private void ensureNoConflicts(RoomBooking booking) {
         DayOfWeek day = booking.getDate().getDayOfWeek();
         if (timetableService.hasConflict(booking.getRoomId(), day, booking.getStartTime(), booking.getEndTime())) {

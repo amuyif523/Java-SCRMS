@@ -85,6 +85,15 @@ public class InstructorService implements CrudService<Instructor> {
         persist();
     }
 
+    public void reload() {
+        instructors.clear();
+        instructors.addAll(dataStore.load());
+    }
+
+    public void flush() {
+        persist();
+    }
+
     private void persist() {
         dataStore.save(instructors);
     }

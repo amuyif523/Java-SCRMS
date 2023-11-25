@@ -127,6 +127,15 @@ public class TimetableService {
         persist();
     }
 
+    public void reload() {
+        slots.clear();
+        slots.addAll(dataStore.load());
+    }
+
+    public void flush() {
+        persist();
+    }
+
     private void persist() {
         dataStore.save(slots);
     }

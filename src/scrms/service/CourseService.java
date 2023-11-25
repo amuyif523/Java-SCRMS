@@ -118,6 +118,15 @@ public class CourseService implements CrudService<Course> {
         persist();
     }
 
+    public void reload() {
+        courses.clear();
+        courses.addAll(dataStore.load());
+    }
+
+    public void flush() {
+        persist();
+    }
+
     private void persist() {
         dataStore.save(courses);
     }

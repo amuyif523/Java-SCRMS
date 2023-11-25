@@ -64,6 +64,15 @@ public class AttendanceService {
         persist();
     }
 
+    public void reload() {
+        records.clear();
+        records.addAll(dataStore.load());
+    }
+
+    public void flush() {
+        persist();
+    }
+
     private void persist() {
         dataStore.save(records);
     }
