@@ -1,0 +1,4 @@
+[
+  {"recordId":"ATT-7000","studentId":"STD-0001","courseId":"CRS-1001","date":"2024-03-01","present":true},
+  {"recordId":"ATT-7001","studentId":"STD-0002","courseId":"CRS-1002","date":"2024-03-01","present":false}
+]

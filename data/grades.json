@@ -1,0 +1,4 @@
+[
+  {"reportId":"GRD-3000","studentId":"STD-0001","courseId":"CRS-1001","score":92.5,"letterGrade":"A","remarks":"Excellent project"},
+  {"reportId":"GRD-3001","studentId":"STD-0002","courseId":"CRS-1002","score":84.0,"letterGrade":"B","remarks":"Solid performance"}
+]
