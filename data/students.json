@@ -1,0 +1,4 @@
+[
+  {"studentId":"STD-0001","fullName":"Lena Brooks","department":"Computer Science","email":"lena.brooks@scrms.edu","enrolledCourseIds":["CRS-1001"]},
+  {"studentId":"STD-0002","fullName":"Marcus Chen","department":"Mathematics","email":"marcus.chen@scrms.edu","enrolledCourseIds":["CRS-1001","CRS-1002"]}
+]

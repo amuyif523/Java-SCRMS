@@ -1,0 +1,4 @@
+[
+  {"slotId":"SLOT-9001","courseId":"CRS-1001","roomId":"ROM-0200","dayOfWeek":"MONDAY","startTime":"08:00","endTime":"09:45"},
+  {"slotId":"SLOT-9002","courseId":"CRS-1002","roomId":"ROM-0201","dayOfWeek":"TUESDAY","startTime":"10:00","endTime":"11:45"}
+]

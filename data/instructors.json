@@ -1,0 +1,4 @@
+[
+  {"instructorId":"INS-0100","fullName":"Dr. Priya Patel","department":"Computer Science","email":"priya.patel@scrms.edu","courseIds":["CRS-1001"]},
+  {"instructorId":"INS-0101","fullName":"Dr. William Ortiz","department":"Mathematics","email":"william.ortiz@scrms.edu","courseIds":["CRS-1002"]}
+]

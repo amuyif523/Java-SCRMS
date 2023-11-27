@@ -44,17 +44,16 @@ public class CourseService implements CrudService<Course> {
     public Course create(Course course) {
         ValidationUtils.requireText(course.getTitle(), "Course title is required");
         ValidationUtils.requirePositiveNumber(course.getCredits(), "Credits must be positive");
-        if (course.getInstructorId() != null) {
-            Instructor instructor = instructorService.findById(course.getInstructorId());
-            if (instructor == null) {
-                throw new ResourceNotFoundException("Instructor not found: " + course.getInstructorId());
-            }
-            instructorService.assignCourse(instructor.getInstructorId(), course.getCourseId());
+        if (course.getInstructorId() != null && instructorService.findById(course.getInstructorId()) == null) {
+            throw new ResourceNotFoundException("Instructor not found: " + course.getInstructorId());
         }
         if (course.getRoomId() != null && roomService.findById(course.getRoomId()) == null) {
             throw new ResourceNotFoundException("Room not found: " + course.getRoomId());
         }
         courses.add(course);
+        if (course.getInstructorId() != null) {
+            instructorService.assignCourse(course.getInstructorId(), course.getCourseId());
+        }
         persist();
         return course;
     }
@@ -75,6 +74,12 @@ public class CourseService implements CrudService<Course> {
         if (course.getInstructorId() != null && instructorService.findById(course.getInstructorId()) == null) {
             throw new ResourceNotFoundException("Instructor not found: " + course.getInstructorId());
         }
+        if (existing.getInstructorId() != null && !existing.getInstructorId().equals(course.getInstructorId())) {
+            instructorService.unassignCourse(existing.getInstructorId(), existing.getCourseId());
+        }
+        if (course.getInstructorId() != null && !course.getInstructorId().equals(existing.getInstructorId())) {
+            instructorService.assignCourse(course.getInstructorId(), existing.getCourseId());
+        }
         existing.setInstructorId(course.getInstructorId());
         if (course.getRoomId() != null && roomService.findById(course.getRoomId()) == null) {
             throw new ResourceNotFoundException("Room not found: " + course.getRoomId());
@@ -89,6 +94,12 @@ public class CourseService implements CrudService<Course> {
         Course existing = findById(id);
         if (existing == null) {
             throw new ResourceNotFoundException("Course not found: " + id);
+        }
+        if (existing.getInstructorId() != null) {
+            instructorService.unassignCourse(existing.getInstructorId(), existing.getCourseId());
+        }
+        for (String studentId : existing.getEnrolledStudentIds()) {
+            studentService.dropFromCourse(studentId, existing.getCourseId());
         }
         courses.remove(existing);
         persist();

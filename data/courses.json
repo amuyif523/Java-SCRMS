@@ -1,0 +1,4 @@
+[
+  {"courseId":"CRS-1001","title":"Intro to Algorithms","credits":3,"instructorId":"INS-0100","roomId":"ROM-0200","enrolledStudentIds":["STD-0001","STD-0002"]},
+  {"courseId":"CRS-1002","title":"Advanced Calculus","credits":4,"instructorId":"INS-0101","roomId":"ROM-0201","enrolledStudentIds":["STD-0002"]}
+]

@@ -1,0 +1,4 @@
+[
+  {"roomId":"ROM-0200","name":"Innovation Lab","capacity":40,"type":"LAB"},
+  {"roomId":"ROM-0201","name":"Auditorium A","capacity":120,"type":"AUDITORIUM"}
+]
